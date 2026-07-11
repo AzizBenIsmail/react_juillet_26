@@ -1,9 +1,12 @@
 import './App.css';
-
+import React  , {useState ,useEffect}from 'react';
+// import Navbar from './composant/Navbar';
 function App() {  
   //logic
-  const name = "Aziz";
-  const age = 30;
+  //const name = "Aziz";
+  const [name, setName] = useState("Aziz");
+  //const age = 30;
+  const [age, setAge] = useState(0);
   const element = <h1>Hello, {name}!</h1>;
   const isLoggedIn = true;
   const message = isLoggedIn ? "Welcome back!" : "Please log in.";
@@ -26,8 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        {/* vue */}
+      <header className="App-header"> 
+
         {name}
         {age}
         {message}
@@ -59,6 +62,11 @@ function App() {
           </tbody>          
         </table>
 
+{age}
+<button onMouseEnter={() => setAge(age + 1)}>Increment Age</button>
+<button onMouseLeave={() => setAge(age - 1)}>Decrement Age</button>
+{name}
+<input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </header>
     </div>
   );
